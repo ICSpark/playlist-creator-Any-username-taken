@@ -1,10 +1,40 @@
+let playlist = []
 
 
+function addSong() {
+    let title = document.getElementById("songTitle").value;
+    let artist =  document.getElementById("artist").value;
+    let duration = document.getElementById("duration").value;
 
 
+    if (title != '' && artist != '' && duration != '') {
+
+    let song = {
+        "songTitle": title,
+        "songArtist": artist,
+        "songDuration": duration
+    };
+
+    playlist.push(song);
+
+    title = document.getElementById("songTitle").value = '';
+    artist =  document.getElementById("artist").value = '';
+    duration = document.getElementById("duration").value = '';
+
+    displayPlaylist()
+    } else {
+        alert("Please fill ALL boxes to add song to playlist.")
+    }
+}
 
 
+function removeSong() {
+    if (playlist.length > 0) {
+    playlist.pop(playlist.length)
 
+    displayPlaylist()
+    }
+}
 
 
 
